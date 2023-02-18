@@ -15,5 +15,13 @@
     {"name":"Notes","order":13,"path":"folders/Notes.yy",},
     {"name":"Extensions","order":14,"path":"folders/Extensions.yy",},
   ],
-  "ResourceOrderSettings": [],
+  "ResourceOrderSettings": [
+    {"name":"obj_mc","order":2,"path":"objects/obj_mc/obj_mc.yy",},
+    {"name":"spr_wall","order":1,"path":"sprites/spr_wall/spr_wall.yy",},
+    {"name":"rm_game","order":1,"path":"rooms/rm_game/rm_game.yy",},
+    {"name":"obj_menus","order":1,"path":"objects/obj_menus/obj_menus.yy",},
+    {"name":"obj_floor_tile","order":3,"path":"objects/obj_floor_tile/obj_floor_tile.yy",},
+    {"name":"obj_wall_tile","order":4,"path":"objects/obj_wall_tile/obj_wall_tile.yy",},
+    {"name":"spr_mc","order":2,"path":"sprites/spr_mc/spr_mc.yy",},
+  ],
 }
