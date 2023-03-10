@@ -1,7 +1,9 @@
-/// @description Insert description here
-// You can write your code in this editor
-grv = .2
-hspd = 0
-vspd = 0
-walk = 4
-jump = -5
+///@description Player Vars
+
+vsp = 0
+hsp = 0
+grav = 0.8
+spd = 10
+jmp = 23
+
+tile = layer_tilemap_get_id("Tiles_1");

@@ -1,39 +1,38 @@
-/// @description Insert description here
-// You can write your code in this editor
+///@description Player Behavior
 
-//NONE OF THIS WORKS, but I'm done for now.
+left = -keyboard_check(ord("A"))
+right = keyboard_check(ord("D"))
+up = keyboard_check_pressed(vk_space)
 
-key_right = keyboard_check_pressed(ord("D"))
-key_left = keyboard_check_pressed(ord("A"))
-key_jump = keyboard_check_pressed(ord("W")) or keyboard_check_pressed(vk_space)
+move = left + right
 
-hspd = (key_right - key_left) * walk
+hsp = move*spd
 
-vspd = vspd + grv
-
-if(place_meeting(x, y+1, obj_floor_tile) && key_jump){
-	vspd = jump
+if(move != 0){
+	image_xscale = move
 }
 
-var onepixel = sign(hspd)
+if(tilemap_get_at_pixel(tile, x, y + 1) && up){
+	if(!tilemap_get_at_pixel(tile, x, y - 200)){vsp = -jmp}
+	else { vsp = -15 }
+}
 
-if(place_meeting(x+hspd, y, obj_wall_tile)){
-	while(!place_meeting(x+onepixel, y, obj_wall_tile)){
-		x = x + onepixel
+if(vsp < 23) { vsp += grav }
+
+if(tilemap_get_at_pixel(tile, x, y + vsp)){
+
+	while(!tilemap_get_at_pixel(tile, x, y + sign(vsp))){
+		y += sign(vsp)
 	}
-	hspd = 0;
+	vsp = 0;
 }
 
-x = x + hspd
-
-var onepixel = sign(vspd) //up = -1, down = 1.
-if (place_meeting(x,y+vspd, obj_floor_tile))
-{
-    //move as close as we can
-    while (!place_meeting(x,y+onepixel,obj_floor_tile))
-    {
-        y = y + onepixel;
-    }
-    vspd = 0;
+if(tilemap_get_at_pixel(tile, x + hsp + sprite_width/2, y)){
+	while(!tilemap_get_at_pixel(tile, x + sign(vsp) + sprite_width/2, y)){
+		x += sign(hsp)
+	}
+	hsp = 0;
 }
-y = y + vspd;
+
+x += hsp
+y += vsp
